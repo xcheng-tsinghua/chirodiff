@@ -1,18 +1,12 @@
 # 单类别无条件生成
 
-编辑 `train_single_category.py` 顶部的 `CONFIG`：
+所有参数从命令行读取，五个参数均为必填。激活 dp 后运行：
 
-```python
-CONFIG = {
-    'npz_path': r'D:\document\DataSet\quickdraw\raw\angel.full.npz',
-    'batch_size': 128,
-    'random_seed': 5555,
-    'epoch': 200,
-    'num_images': 16,
-}
+```powershell
+python train_single_category.py --npz_path "D:\document\DataSet\quickdraw\raw\angel.full.npz" --batch_size 128 --random_seed 5555 --epoch 200 --num_images 16
 ```
 
-激活 dp 后运行 `python train_single_category.py`。服务器上修改路径，并使用已配置好 `requirements-dp.txt` 和 CUDA PyTorch 的环境。
+使用 `python train_single_category.py --help` 查看参数说明。带下划线的参数也支持对应的短横线写法，例如 `--batch-size`。服务器上修改数据路径，并使用已配置好 `requirements-dp.txt` 和 CUDA PyTorch 的环境。
 
 只读取 NPZ 内的 `train_split`；没有该键时读取 `train`（当前 angel 文件的实际键名）。不会读取 valid/test，也不从训练划分另切验证集。使用全部符合预处理条件的训练样本；过滤规则沿用已验证的数据适配：长度 5–300、有限坐标、非退化轨迹。输入为 Sketch-RNN 的 `[dx, dy, pen_up]`。
 

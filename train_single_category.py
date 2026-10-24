@@ -1,4 +1,5 @@
-"""Edit CONFIG below, then run: python train_single_category.py."""
+"""Train and generate using command-line arguments; see --help."""
+import argparse
 from datetime import datetime, timedelta, timezone
 from pathlib import Path
 import json
@@ -17,15 +18,6 @@ from main import SketchDiffusion
 from data.dm import ReprType
 from data.batching import ThreePointAbs
 
-
-# 在这里填写训练参数。只使用训练划分；不会读取 valid/test。
-CONFIG = {
-    'npz_path': r'D:\document\DataSet\quickdraw\raw\angel.full.npz',
-    'batch_size': 128,
-    'random_seed': 5555,
-    'epoch': 200,
-    'num_images': 16,
-}
 
 PROJECT_ROOT = Path(__file__).resolve().parent
 CHINA_TIME = timezone(timedelta(hours=8))
@@ -126,4 +118,10 @@ def train_and_generate(npz_path, batch_size, random_seed, epoch, num_images):
 
 
 if __name__ == '__main__':
-    train_and_generate(**CONFIG)
+    parser = argparse.ArgumentParser(description='Train single-category unconditional ChiroDiff and generate PNG images.')
+    parser.add_argument('--npz_path', '--npz-path', required=True, help='Dataset NPZ path (train_split or train)')
+    parser.add_argument('--batch_size', '--batch-size', type=int, required=True)
+    parser.add_argument('--random_seed', '--random-seed', type=int, required=True)
+    parser.add_argument('--epoch', type=int, required=True, help='Total training epochs')
+    parser.add_argument('--num_images', '--num-images', type=int, required=True, help='Number of PNG images to generate after training')
+    train_and_generate(**vars(parser.parse_args()))
