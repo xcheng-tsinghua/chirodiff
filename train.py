@@ -105,7 +105,7 @@ def train_and_generate(npz_path, batch_size, random_seed, epoch, num_images):
         print(f'epoch=0: skipping training, loading {weights_path}', flush=True)
     trained = AngelModel.load_from_checkpoint(str(weights_path), map_location='cpu').cuda()
     now = datetime.now(CHINA_TIME)
-    image_dir = PROJECT_ROOT / 'imgs_gen' / category / now.strftime('%Y-%m-%d')
+    image_dir = PROJECT_ROOT / 'imgs_gen' / category / now.strftime('%Y-%m-%d_%H-%M-%S')
     image_dir.mkdir(parents=True, exist_ok=True)
     run_id = now.strftime('%H%M%S_%f')
     rng = np.random.default_rng(random_seed)

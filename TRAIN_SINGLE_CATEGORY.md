@@ -16,13 +16,13 @@ python train.py --npz_path "D:\document\DataSet\quickdraw\raw\angel.full.npz" --
 
 ```text
 weights/angel.ckpt
-imgs_gen/angel/2026-10-24/时间_000001.png
-imgs_gen/angel/2026-10-24/时间_000002.png
-imgs_gen/angel/2026-10-24/时间_config.json
+imgs_gen/angel/2026-10-24_15-30-45/时间_000001.png
+imgs_gen/angel/2026-10-24_15-30-45/时间_000002.png
+imgs_gen/angel/2026-10-24_15-30-45/时间_config.json
 logs/angel/version_N/...
 ```
 
-`angel.full.npz` 自动提取类型名 `angel`；普通 `cat.npz` 提取 `cat`。日期按北京时间计算，采用生成开始时的日期。同类再次训练会覆盖 `weights/{类型名}.ckpt`；图片带微秒时间前缀，同一天的不同运行不会覆盖彼此。
+`angel.full.npz` 自动提取类型名 `angel`；普通 `cat.npz` 提取 `cat`。目录时间按北京时间计算，采用生成开始时的年月日时分秒，格式为 YYYY-MM-DD_HH-MM-SS。同类再次训练会覆盖 `weights/{类型名}.ckpt`；图片带微秒时间前缀，同一天的不同运行不会覆盖彼此。
 
 epoch > 0 时从零训练，不自动续训；epoch=0 时只加载已有权重生成，不训练也不覆盖权重；不在本地默认启动正式训练。已用 33 条真实样本、batch_size=16、epoch=1、random_seed=42 测试，共 3 次参数更新（包含最后的单样本 batch），成功保存/加载 checkpoint 并生成 3 张独立 PNG。测试产物类别为 `smoke_angel`，不会占用 `angel.ckpt`。
 
@@ -32,3 +32,4 @@ epoch > 0 时从零训练，不自动续训；epoch=0 时只加载已有权重�
 `python train.py --npz_path "D:\document\DataSet\quickdraw\raw\angel.full.npz" --batch_size 32 --random_seed 1 --epoch 0 --num_images 100`
 
 epoch=0 自动读取项目根目录的 weights/angel.ckpt，文件不存在时报错。仍需提供数据文件，用训练划分的序列长度分布确定生成长度，但不执行训练。图片使用 Matplotlib 绘制：白底、无坐标轴、等比例、圆润粗线，不同笔画按蓝/橙/绿/红等颜色循环，与参考图风格一致。
+
