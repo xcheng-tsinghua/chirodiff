@@ -59,8 +59,9 @@ def train_and_generate(npz_path, batch_size, random_seed, epoch, num_images):
     category = data_path.stem.removesuffix('.full')
     if not category or category in ('.', '..'):
         raise ValueError('Cannot extract category from the dataset filename')
+    output_name = f'{category}_{random_seed}'
     weights_dir = PROJECT_ROOT / 'weights'
-    weights_path = weights_dir / f'{category}.ckpt'
+    weights_path = weights_dir / f'{output_name}.ckpt'
     if epoch == 0 and not weights_path.is_file():
         raise FileNotFoundError(f'epoch=0 requires existing weights: {weights_path}')
     if not torch.cuda.is_available():
@@ -105,7 +106,7 @@ def train_and_generate(npz_path, batch_size, random_seed, epoch, num_images):
         print(f'epoch=0: skipping training, loading {weights_path}', flush=True)
     trained = AngelModel.load_from_checkpoint(str(weights_path), map_location='cpu').cuda()
     now = datetime.now(CHINA_TIME)
-    image_dir = PROJECT_ROOT / 'imgs_gen' / category / now.strftime('%Y-%m-%d_%H-%M-%S')
+    image_dir = PROJECT_ROOT / 'imgs_gen' / output_name / now.strftime('%Y-%m-%d_%H-%M-%S')
     image_dir.mkdir(parents=True, exist_ok=True)
     run_id = now.strftime('%H%M%S_%f')
     rng = np.random.default_rng(random_seed)
