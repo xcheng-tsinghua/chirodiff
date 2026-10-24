@@ -1,4 +1,4 @@
-cd /opt/data/private/networks/cad_lab && conda activate occt
+cd /opt/data/private/networks/chirodiff && conda activate dp
 
 # 常用命令行
 
