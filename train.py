@@ -134,6 +134,6 @@ if __name__ == '__main__':
     parser.add_argument('--npz_path', '--npz-path', default=r'/root/my_data/data_set/quickdraw/raw/angel.full.npz', help='Dataset NPZ path (train_split or train)')
     parser.add_argument('--batch_size', '--batch-size', type=int, default=2048)
     parser.add_argument('--random_seed', '--random-seed', type=int, default=1)
-    parser.add_argument('--epoch', type=int, default=30, help='Total training epochs; 0 loads existing category weights and generates without training')
-    parser.add_argument('--num_images', '--num-images', type=int, default=100, help='Number of PNG images to generate after training')
+    parser.add_argument('--epoch', type=int, default=100, help='Total training epochs; 0 loads existing category weights and generates without training')
+    parser.add_argument('--num_images', '--num-images', type=int, default=1000, help='Number of PNG images to generate after training')
     train_and_generate(**vars(parser.parse_args()))

@@ -107,4 +107,10 @@ git branch valid_2026_7_12 origin/main
 git push -u origin valid_2026_7_17
 
 
-s
+
+python train.py --npz_path=/root/my_data/data_set/quickdraw/raw/apple.full.npz && \
+python train.py --npz_path=/root/my_data/data_set/quickdraw/raw/moon.full.npz && \
+python train.py --npz_path=/root/my_data/data_set/quickdraw/raw/book.full.npz && \
+python train.py --npz_path=/root/my_data/data_set/quickdraw/raw/shark.full.npz && \
+python train.py --npz_path=/root/my_data/data_set/quickdraw/raw/angel.full.npz && \
+python train.py --npz_path=/root/my_data/data_set/quickdraw/raw/bicycle.full.npz
