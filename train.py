@@ -120,7 +120,7 @@ def train_and_generate(npz_path, batch_size, random_seed, epoch, num_images):
 if __name__ == '__main__':
     parser = argparse.ArgumentParser(description='Train single-category unconditional ChiroDiff and generate PNG images.')
     parser.add_argument('--npz_path', '--npz-path', default=r'/root/my_data/data_set/quickdraw/raw/angel.full.npz', help='Dataset NPZ path (train_split or train)')
-    parser.add_argument('--batch_size', '--batch-size', type=int, default=32)
+    parser.add_argument('--batch_size', '--batch-size', type=int, default=512)
     parser.add_argument('--random_seed', '--random-seed', type=int, default=1)
     parser.add_argument('--epoch', type=int, default=30, help='Total training epochs')
     parser.add_argument('--num_images', '--num-images', type=int, default=100, help='Number of PNG images to generate after training')
