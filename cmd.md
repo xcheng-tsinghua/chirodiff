@@ -1,4 +1,4 @@
-cd /opt/data/private/networks/chirodiff && conda activate dp
+cd /opt/data/private/networks/chirodiff && conda activate chiro
 
 # 常用命令行
 
@@ -114,3 +114,37 @@ python train.py --npz_path=/root/my_data/data_set/quickdraw/raw/book.full.npz &&
 python train.py --npz_path=/root/my_data/data_set/quickdraw/raw/shark.full.npz && \
 python train.py --npz_path=/root/my_data/data_set/quickdraw/raw/angel.full.npz && \
 python train.py --npz_path=/root/my_data/data_set/quickdraw/raw/bicycle.full.npz
+
+## TMM R1
+随机种子： 92,48,69,83,5
+
+python train.py --random-seed=92 --npz_path=/root/my_data/data_set/quickdraw/raw/apple.full.npz && \
+python train.py --random-seed=92 --npz_path=/root/my_data/data_set/quickdraw/raw/moon.full.npz && \
+python train.py --random-seed=92 --npz_path=/root/my_data/data_set/quickdraw/raw/book.full.npz && \
+python train.py --random-seed=92 --npz_path=/root/my_data/data_set/quickdraw/raw/shark.full.npz && \
+python train.py --random-seed=92 --npz_path=/root/my_data/data_set/quickdraw/raw/angel.full.npz && \
+python train.py --random-seed=92 --npz_path=/root/my_data/data_set/quickdraw/raw/bicycle.full.npz \
+python train.py --random-seed=48 --npz_path=/root/my_data/data_set/quickdraw/raw/apple.full.npz && \
+python train.py --random-seed=48 --npz_path=/root/my_data/data_set/quickdraw/raw/moon.full.npz && \
+python train.py --random-seed=48 --npz_path=/root/my_data/data_set/quickdraw/raw/book.full.npz && \
+python train.py --random-seed=48 --npz_path=/root/my_data/data_set/quickdraw/raw/shark.full.npz && \
+python train.py --random-seed=48 --npz_path=/root/my_data/data_set/quickdraw/raw/angel.full.npz && \
+python train.py --random-seed=48 --npz_path=/root/my_data/data_set/quickdraw/raw/bicycle.full.npz \
+python train.py --random-seed=69 --npz_path=/root/my_data/data_set/quickdraw/raw/apple.full.npz && \
+python train.py --random-seed=69 --npz_path=/root/my_data/data_set/quickdraw/raw/moon.full.npz && \
+python train.py --random-seed=69 --npz_path=/root/my_data/data_set/quickdraw/raw/book.full.npz && \
+python train.py --random-seed=69 --npz_path=/root/my_data/data_set/quickdraw/raw/shark.full.npz && \
+python train.py --random-seed=69 --npz_path=/root/my_data/data_set/quickdraw/raw/angel.full.npz && \
+python train.py --random-seed=69 --npz_path=/root/my_data/data_set/quickdraw/raw/bicycle.full.npz \
+python train.py --random-seed=83 --npz_path=/root/my_data/data_set/quickdraw/raw/apple.full.npz && \
+python train.py --random-seed=83 --npz_path=/root/my_data/data_set/quickdraw/raw/moon.full.npz && \
+python train.py --random-seed=83 --npz_path=/root/my_data/data_set/quickdraw/raw/book.full.npz && \
+python train.py --random-seed=83 --npz_path=/root/my_data/data_set/quickdraw/raw/shark.full.npz && \
+python train.py --random-seed=83 --npz_path=/root/my_data/data_set/quickdraw/raw/angel.full.npz && \
+python train.py --random-seed=83 --npz_path=/root/my_data/data_set/quickdraw/raw/bicycle.full.npz \
+python train.py --random-seed=5 --npz_path=/root/my_data/data_set/quickdraw/raw/apple.full.npz && \
+python train.py --random-seed=5 --npz_path=/root/my_data/data_set/quickdraw/raw/moon.full.npz && \
+python train.py --random-seed=5 --npz_path=/root/my_data/data_set/quickdraw/raw/book.full.npz && \
+python train.py --random-seed=5 --npz_path=/root/my_data/data_set/quickdraw/raw/shark.full.npz && \
+python train.py --random-seed=5 --npz_path=/root/my_data/data_set/quickdraw/raw/angel.full.npz && \
+python train.py --random-seed=5 --npz_path=/root/my_data/data_set/quickdraw/raw/bicycle.full.npz
